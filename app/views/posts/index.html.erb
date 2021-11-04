@@ -1,20 +1,23 @@
-<% content_for :page_title,  "create" %>
-<h1 class= "title">Blog<h1>
-<section class="section">
-<div class = "container">
-<% @post.each do |post| %>
-<div class = "card">
-<div class = "card_content">
-<div class = "media">
-<div class = "media_content">
-<p class="title is-4"><%= link_to post.title, post%>
-</p>
+% content_for :page_title,  "Index" %>
+
+<div class="section">
+	<div class="container">
+		<% @posts.each do |post| %>
+			<div class="card">
+		  <div class="card-content">
+		    <div class="media">
+		      <div class="media-content">
+		        <p class="title is-4"><%= link_to post.title, post  %></p>
+		      </div>
+		    </div>
+		    <div class="content">
+		     	<%= post.content %>
+		    </div>
+		    <div class="comment-count">
+		    	<span class="tag is-rounded"><%= post.comments.count %> comments</span>
+		    </div>
+		  </div>
+		</div>
+		<% end %>
+	</div>
 </div>
-</div>
-<div class ="content">
-<div class = "comment-count">
-<span class = "tag is_rounded"></span>
-</div>
-<% end%>
-</div>
-</section>
